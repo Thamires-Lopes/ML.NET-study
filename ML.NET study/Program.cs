@@ -58,7 +58,7 @@ void UseModelWithSingleItem(MLContext mlContext, ITransformer model)
 {
     var predictionFunction = mlContext.Model.CreatePredictionEngine<SentimentData, SentimentPrediction>(model);
 
-    SentimentData sampleStatement = new SentimentData
+    var sampleStatement = new SentimentData
     {
         SentimentText = "This was a very bad steak"
     };
