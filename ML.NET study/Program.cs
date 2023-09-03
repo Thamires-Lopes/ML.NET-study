@@ -9,13 +9,12 @@ class Program
 
         var mlContext = new MLContext(seed: 0);
         var dataView = LoadData(mlContext, _dataPath);
-        var (trainData, testData) = SplitData(mlContext, dataView);
 
         string[] featuresColumnsNames = { "SepalLength", "SepalWidth", "PetalLength", "PetalWidth" };
 
-        var model = TrainModel(mlContext, trainData, featuresColumnsNames, 3);
+        var model = TrainModel(mlContext, dataView, featuresColumnsNames, 3);
 
-        var predictions = model.Transform(testData);
+        var predictions = model.Transform(dataView);
 
         Evalute(mlContext, predictions);
     }
@@ -23,15 +22,6 @@ class Program
     private static IDataView LoadData(MLContext mlContext, string dataPath)
     {
         return mlContext.Data.LoadFromTextFile<IrisData>(dataPath, hasHeader: false, separatorChar: ',');
-    }
-
-    private static (IDataView trainData, IDataView testData) SplitData(MLContext mlContext, IDataView data)
-    {
-        var trainTestSplit = mlContext.Data.TrainTestSplit(data);
-        var trainData = trainTestSplit.TrainSet;
-        var testData = trainTestSplit.TestSet;
-
-        return (trainData, testData);
     }
 
     private static ITransformer TrainModel(MLContext mlContext, IDataView trainData, string[] features, int numberCluster)
