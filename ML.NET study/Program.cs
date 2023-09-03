@@ -41,6 +41,6 @@ class Program
         Console.WriteLine("Metrics:");
         Console.WriteLine($"Davies-Bouldin Index: {metrics.DaviesBouldinIndex}");
         Console.WriteLine($"Average Distance: {metrics.AverageDistance}");
-        Console.WriteLine($"Normalized Mutual Information: {metrics.NormalizedMutualInformation}");
+        //Console.WriteLine($"Normalized Mutual Information: {metrics.NormalizedMutualInformation}"); //Only calculates if label column is provided
     }
 }

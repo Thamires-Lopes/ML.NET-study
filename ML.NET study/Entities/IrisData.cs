@@ -19,7 +19,7 @@ namespace ML.NET_study.Entities
     public class ClusterPrediction
     {
         [ColumnName("PredictedLabel")]
-        public uint PredictedCluterId;
+        public uint PredictedClusterId;
 
         [ColumnName("Score")]
         public float[]? Distances;
