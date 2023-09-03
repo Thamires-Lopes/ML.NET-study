@@ -9,13 +9,13 @@ class Program
 
         var mlContext = new MLContext(seed: 0);
         var dataView = LoadData(mlContext, _dataPath);
-        var splitedData = SplitData(mlContext, dataView);
+        var (trainData, testData) = SplitData(mlContext, dataView);
 
         string[] featuresColumnsNames = { "SepalLength", "SepalWidth", "PetalLength", "PetalWidth" };
 
-        var model = TrainModel(mlContext, splitedData.trainData, featuresColumnsNames, 3);
+        var model = TrainModel(mlContext, trainData, featuresColumnsNames, 3);
 
-        var predictions = model.Transform(splitedData.testData);
+        var predictions = model.Transform(testData);
 
         Evalute(mlContext, predictions);
     }
