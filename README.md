@@ -2,7 +2,7 @@
 ## Repositório de estudos sobre a biblioteca ML.NET
 ### Branchs:
 - categorize_flowers: KMeans
-- kmeans_1: KMeans
+- kmeans_1: KMeans (com benchmark)
 - predict_prices: Fast Tree
 - sentiment_analysis: SdcaLogisticRegression
 
