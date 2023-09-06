@@ -56,9 +56,6 @@ namespace ML.NET_study.Entities
 
         [LoadColumn(15)]
         public float ShapeFactor4;
-
-        //[LoadColumn(16)]
-        //public float Class;
     }
 
     public class ClusterPrediction
