@@ -1,11 +1,6 @@
 # ML.NET-study
 ## Repositório de estudos sobre a biblioteca ML.NET
-### Branchs:
-- categorize_flowers: KMeans
-- kmeans_1: KMeans
-- predict_prices: Fast Tree
-- sentiment_analysis: SdcaLogisticRegression
-
-##### Mais informações nos readme's de cada branch
+- Nesta branch foi utilizado o algoritmo de classificação binária SdcaLogisticRegression da biblioteca ML.NET.
+- Tutorial seguido da documentação do ML.NET: https://learn.microsoft.com/en-us/dotnet/machine-learning/tutorials/sentiment-analysis
 
 ## Study repository about ML.NET
