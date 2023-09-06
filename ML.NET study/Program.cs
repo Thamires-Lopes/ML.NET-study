@@ -5,14 +5,16 @@ class Program
 {
     static void Main()
     {
-        string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "iris.data");
+        string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "Dry_Bean_Dataset.xlsx");
 
         var mlContext = new MLContext(seed: 0);
         var dataView = LoadData(mlContext, _dataPath);
 
-        string[] featuresColumnsNames = { "SepalLength", "SepalWidth", "PetalLength", "PetalWidth" };
+        string[] featuresColumnsNames = { "Area", "Perimeter", "MajorAxisLength", "MinorAxisLength", "AspectRation", "Eccentricity",
+                                          "ConvexArea", "Eccentricity", "EquivDiameter", "Extent", "Solidity", "Roundness", "Compactness",
+                                          "ShapeFactor1", "ShapeFactor2", "ShapeFactor3", "ShapeFactor4"};
 
-        var model = TrainModel(mlContext, dataView, featuresColumnsNames, 3);
+        var model = TrainModel(mlContext, dataView, featuresColumnsNames, 5);
 
         var predictions = model.Transform(dataView);
 
@@ -21,7 +23,7 @@ class Program
 
     private static IDataView LoadData(MLContext mlContext, string dataPath)
     {
-        return mlContext.Data.LoadFromTextFile<IrisData>(dataPath, hasHeader: false, separatorChar: ',');
+        return mlContext.Data.LoadFromTextFile<BeanData>(dataPath, hasHeader: true, separatorChar: ',');
     }
 
     private static ITransformer TrainModel(MLContext mlContext, IDataView trainData, string[] features, int numberCluster)
